@@ -1,0 +1,714 @@
+/* ===== CSS3 Variables & Reset ===== */
+:root {
+  --primary: #d90429;
+  --primary-dark: #a60320;
+  --dark: #111827;
+  --dark-soft: #1f2937;
+  --text: #374151;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --bg-alt: #f3f4f6;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+  --transition: 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== Navigation Bar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17, 24, 39, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.btn-nav {
+  background: var(--primary);
+  color: #ffffff !important;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+}
+
+.btn-nav:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #450a0a 100%);
+  color: #ffffff;
+  padding: 5.5rem 0;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(217, 4, 41, 0.2);
+  border: 1px solid rgba(217, 4, 41, 0.5);
+  color: #fca5a5;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  color: #d1d5db;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Reusable Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--transition), background var(--transition), color var(--transition);
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #ffffff;
+  color: var(--dark);
+}
+
+.btn-secondary {
+  background: var(--bg-alt);
+  color: var(--dark);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--dark);
+  color: #ffffff;
+  border-color: var(--dark);
+}
+
+.btn-sm {
+  padding: 0.55rem 1rem;
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+.section-header p {
+  color: var(--muted);
+}
+
+/* ===== Car Models Grid ===== */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+.car-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.car-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(17, 24, 39, 0.14);
+}
+
+.car-img-box {
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.car-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.car-card:hover .car-img-box img {
+  transform: scale(1.06);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.car-body {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.car-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.car-title-row h3 {
+  font-size: 1.25rem;
+  color: var(--dark);
+}
+
+.price {
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.car-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.car-body h4 {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+}
+
+.spec-list {
+  list-style: none;
+  font-size: 0.87rem;
+  margin-bottom: 1rem;
+}
+
+.spec-list li {
+  padding: 0.22rem 0;
+  border-bottom: 1px dashed #f3f4f6;
+}
+
+/* Expandable Details inside Car Card */
+.more-details {
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.86rem;
+}
+
+.more-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--dark);
+  user-select: none;
+}
+
+.feature-list {
+  margin: 0.7rem 0 0.8rem 1.1rem;
+  color: var(--text);
+}
+
+.feature-list li {
+  margin-bottom: 0.3rem;
+}
+
+.part-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.part-links span {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.part-links a {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.part-links a:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.65rem;
+}
+
+.footnote {
+  text-align: center;
+  margin-top: 1.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ===== Car Parts Guide Grid ===== */
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+}
+
+.part-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.part-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.part-icon {
+  font-size: 1.9rem;
+}
+
+.part-card h3 {
+  font-size: 1.08rem;
+  color: var(--dark);
+}
+
+.part-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+.redirect-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.4rem;
+}
+
+/* ===== Comparison Table ===== */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  min-width: 720px;
+}
+
+.compare-table thead {
+  background: var(--dark);
+  color: #ffffff;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 0.95rem 1.1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.compare-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.compare-table tbody tr:hover {
+  background: #fef2f2;
+}
+
+.compare-table td:first-child {
+  font-weight: 700;
+  color: var(--dark);
+  background: #f3f4f6;
+}
+
+/* ===== Test Drive Section ===== */
+.test-drive-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.td-info h2 {
+  font-size: 2rem;
+  color: var(--dark);
+  margin-bottom: 0.8rem;
+}
+
+.td-info > p {
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+
+.td-perks {
+  list-style: none;
+  margin-bottom: 1.8rem;
+}
+
+.td-perks li {
+  padding: 0.4rem 0;
+  font-weight: 500;
+  color: var(--dark-soft);
+}
+
+.showroom-contact {
+  background: #ffffff;
+  border-left: 4px solid var(--primary);
+  padding: 1.1rem 1.3rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.showroom-contact p + p {
+  margin-top: 0.4rem;
+}
+
+.td-form {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.td-form h3 {
+  font-size: 1.35rem;
+  color: var(--dark);
+  margin-bottom: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.94rem;
+  font-family: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.15);
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.3rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.radio-group input {
+  width: auto;
+}
+
+/* ===== Pure CSS3 Modal (:target) ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 200;
+}
+
+.modal-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background: #ffffff;
+  max-width: 420px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.modal-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.modal-box h3 {
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+.modal-box p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  margin-bottom: 1.4rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--dark);
+  color: #9ca3af;
+  padding: 2rem 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* ===== Responsive Breakpoints ===== */
+@media (max-width: 860px) {
+  .test-drive-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 3.8rem 0;
+  }
+
+  .nav-links {
+    gap: 0.9rem;
+  }
+}
